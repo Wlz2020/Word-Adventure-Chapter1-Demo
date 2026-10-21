@@ -657,7 +657,7 @@ window.WordPictures = {
     <path d="M32 78l5 7 9 1-7 6 1 9-8-5-8 5 2-9-7-6 9-1Z" fill="#e8c777"/>
     <path d="M202 119l3 6 7 1-5 4 1 7-6-3-6 3 2-7-5-4 7-1Z" fill="#e8c777"/>
   </svg>`,
-  BREAD: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 190" role="img" aria-label="面包">
+  BREAD: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 190" role="img" aria-label="BREAD">
     <ellipse cx="120" cy="163" rx="91" ry="11" fill="#315a4d" opacity=".12"/>
     <g stroke="#805c3f" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M32 125q2-39 29-48 13-32 46-17 20-24 48-3 31-9 47 21 18 12 10 45l-9 21q-79 27-163-1Z" fill="#d99d51"/>
@@ -668,7 +668,7 @@ window.WordPictures = {
     </g>
     <g fill="#fbe7b5"><ellipse cx="82" cy="124" rx="3" ry="2"/><ellipse cx="137" cy="131" rx="3" ry="2"/><ellipse cx="177" cy="117" rx="3" ry="2"/></g>
   </svg>`,
-  APPLE: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 190" role="img" aria-label="苹果">
+  APPLE: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 190" role="img" aria-label="APPLE">
     <ellipse cx="119" cy="168" rx="64" ry="9" fill="#315a4d" opacity=".12"/>
     <g stroke="#5a5944" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M117 59q-1-24 12-34" fill="none" stroke="#876243" stroke-width="8"/>
@@ -681,7 +681,7 @@ window.WordPictures = {
     </g>
     <ellipse cx="78" cy="94" rx="7" ry="11" fill="#ffe3b7" transform="rotate(20 78 94)" opacity=".8"/>
   </svg>`,
-  ORANGE: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 190" role="img" aria-label="橙子">
+  ORANGE: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 190" role="img" aria-label="ORANGE">
     <ellipse cx="119" cy="169" rx="66" ry="9" fill="#315a4d" opacity=".12"/>
     <g stroke="#775b3f" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M119 48q-3-13 4-22" fill="none" stroke="#866144" stroke-width="7"/>
@@ -3382,8 +3382,8 @@ window.BonaBackWalk=Object.freeze({columns:4,frameWidth:320,frameHeight:512,coun
 /* Three standalone, unhurried playgrounds. All motion advances through update(dt). */
 (function (root) {
   'use strict';
-  const ITEMS=[{key:'BREAD',label:'面包',icon:'▰'},{key:'APPLE',label:'苹果',icon:'●'},{key:'ORANGE',label:'橙子',icon:'●'}];
-  const ANCHORS=[{key:'BREAD',label:'面包',x:600,y:300},{key:'HAMMER',label:'铁锤',x:1080,y:300},{key:'APPLE',label:'苹果',x:1150,y:520},{key:'ORANGE',label:'橙子',x:860,y:620},{key:'ORDER',label:'秩序',x:480,y:520}];
+  const ITEMS=[{key:'BREAD',label:'BREAD',icon:'▰'},{key:'APPLE',label:'APPLE',icon:'●'},{key:'ORANGE',label:'ORANGE',icon:'●'}];
+  const ANCHORS=[{key:'BREAD',label:'BREAD',x:600,y:300},{key:'HAMMER',label:'HAMMER',x:1080,y:300},{key:'APPLE',label:'APPLE',x:1150,y:520},{key:'ORANGE',label:'ORANGE',x:860,y:620},{key:'ORDER',label:'ORDER',x:480,y:520}];
   const CONFIG={
     MINI_W01_01:{kind:'forge',title:'把名字之光送回铁锤',description:'拖动铁锤敲结晶；也可以先点铁锤，再点结晶。每块敲两下。',guide:'Abandon：轻轻敲开结晶，让光顺着锤柄走。',success:'名字之光回到铁锤上',after:'Bona 放慢动作，等铁匠看清手里的东西。',total:3},
     MINI_W01_02:{kind:'bounce',title:'和居民一起收好篮子',description:'点点缓缓弹跳的面包和水果，把它们送进大篮子。',guide:'Bona：慢慢来，我们一起把篮子收好。',success:'篮子稳稳地收好了',after:'居民抱住篮子，急促的呼吸慢了下来。',total:6},
@@ -3443,7 +3443,7 @@ window.BonaBackWalk=Object.freeze({columns:4,frameWidth:320,frameHeight:512,coun
     const workshop='<div class="sm-workshop-wall"><i class="sm-window"></i><i class="sm-furnace"><b></b><span>✦</span></i><i class="sm-hanging-tool">⚒</i></div><div class="sm-forge-floor"></div><div class="sm-forge-table"><i></i><b></b></div>';
     const orchard='<div class="sm-sun"></div><div class="sm-cloud sm-cloud-one"></div><div class="sm-cloud sm-cloud-two"></div><div class="sm-hill sm-hill-one"></div><div class="sm-hill sm-hill-two"></div><div class="sm-orchard-tree sm-tree-one"><i></i></div><div class="sm-orchard-tree sm-tree-two"><i></i></div><div class="sm-market-stall"><b>钟楼街 · 水果摊</b></div><div class="sm-clocktower"><i></i></div><div class="sm-orchard-floor"></div><div class="sm-basket"><span></span><b>和居民一起收好</b></div>';
     const night='<div class="sm-night-moon"></div><div class="sm-palace-pillar sm-pillar-left"></div><div class="sm-palace-pillar sm-pillar-right"></div><div class="sm-stars">✦<i>✧</i><b>✦</b><em>✧</em></div><div class="sm-starmap"><i></i><b></b></div><div class="sm-night-hills"></div>';
-    const forge=model.state.crystals.map(c=>'<button class="sm-crystal" data-crystal="'+c.key+'" style="left:'+c.x+'px;top:'+c.y+'px" aria-label="字母结晶'+c.letter+'"><span class="sm-crystal-shape"><b>'+c.letter+'</b><i class="sm-crack"></i></span><small>敲两下</small></button>').join('')+'<button class="sm-hammer" data-source="HAMMER" aria-label="拿起铁锤"><span class="sm-picture">'+image('HAMMER')+'</span><b>拿起铁锤</b></button>';
+    const forge=model.state.crystals.map(c=>'<button class="sm-crystal" data-crystal="'+c.key+'" style="left:'+c.x+'px;top:'+c.y+'px" aria-label="字母结晶'+c.letter+'"><span class="sm-crystal-shape"><b>'+c.letter+'</b><i class="sm-crack"></i></span><small>敲两下</small></button>').join('')+'<button class="sm-hammer" data-source="HAMMER" aria-label="拿起铁锤"><span class="sm-picture">'+image('HAMMER')+'</span><b>HAMMER</b></button>';
     const fruits=model.state.fruits.map(f=>'<button class="sm-fruit" data-fruit="'+f.key+'" aria-label="收集'+f.label+'"><span class="sm-picture">'+image(f.item)+'</span><i>＋</i></button>').join('');
     const anchors='<svg class="sm-constellation-lines" viewBox="0 0 1600 900" aria-hidden="true"><g class="sm-lines"></g></svg>'+ANCHORS.map(a=>'<button class="sm-anchor" data-anchor="'+a.key+'" style="left:'+a.x+'px;top:'+a.y+'px" aria-label="点亮'+a.label+'"><span class="sm-anchor-ring"></span><span class="sm-picture">'+image(a.key)+'</span><b>'+a.label+'</b><i>✦</i></button>').join('')+'<button class="sm-orb" data-orb aria-label="拖动光球连接五道光"><span>✦</span></button>';
     layer.innerHTML='<div class="sm-background" aria-hidden="true">'+({forge:workshop,bounce:orchard,constellation:night}[config.kind])+'</div><header class="sm-heading"><span>'+director.config.location+'</span><h2>'+config.title+'</h2><p>'+config.description+'</p></header><div class="sm-progress"><small>'+({forge:'敲开的结晶',bounce:'收好的小伙伴',constellation:'点亮的星光'}[config.kind])+'</small><strong class="sm-count" aria-live="polite"></strong><div class="sm-dots" aria-hidden="true"></div></div><div class="sm-cast-root" aria-label="小游戏中的人物"></div><div class="sm-playfield">'+({forge,bounce:fruits,constellation:anchors}[config.kind])+'</div><div class="sm-particles" aria-hidden="true"></div><p class="sm-feedback" aria-live="polite"></p><section class="sm-scene-dialogue" aria-label="小游戏剧情对话"><div class="sm-scene-portrait" aria-hidden="true"></div><div class="sm-scene-copy"><div class="sm-scene-speaker"></div><p class="sm-scene-text" aria-live="polite"></p><small class="sm-scene-hint"></small></div><button class="primary" data-scene-next>继续　▸</button></section><div class="sm-scene-coach hidden" role="status"><b class="sm-coach-speaker"></b><p class="sm-coach-text"></p></div><div class="sm-success hidden"><span class="sm-success-icon">✦</span><div><small>小帮忙 · 完成</small><h3>'+config.success+'</h3><p>'+config.after+'</p></div><button class="primary sm-continue" data-mini-continue>'+(options.continueLabel||'继续故事')+'　▸</button></div>';
@@ -3700,14 +3700,14 @@ window.BonaBackWalk=Object.freeze({columns:4,frameWidth:320,frameHeight:512,coun
   'use strict';
   const configs={
     BAKER_BREAD:{after:'c11-baker-sign-ground',npc:'resident',kind:'arrange',word:'BREAD',title:'照着样子排好面包的名字',context:'面包商：我认得面包……帮我把这张词光卡排好吧。',reply:'面包商：这张卡先放在这里。我守着面包，等你们回来。'},
-    FAMILY:{after:'c11-mother-embrace',npc:'mother',kind:'connect',pairs:[['MOTHER','母亲'],['CHILD','孩子']],title:'把绘本上的家人连起来',context:'母亲：他一直拉着我的手。陪他看一眼这页绘本，好吗？',reply:'母亲：谢谢。我们就在这里等，手不会松开。'},
+    FAMILY:{after:'c11-mother-embrace',npc:'mother',kind:'connect',pairs:[['MOTHER','MOTHER'],['CHILD','CHILD']],title:'把绘本上的家人连起来',context:'母亲：他一直拉着我的手。陪他看一眼这页绘本，好吗？',reply:'母亲：谢谢。我们就在这里等，手不会松开。'},
     SMITH_HAMMER:{after:'c11-smith-hammer',npc:'smith',kind:'mole',word:'HAMMER',title:'点亮出现的铁锤词光',context:'铁匠：我明明认得它……这些乱字却一直围着我。',reply:'Abandon：词光找到了。那团混乱凝成了重铠，先把它击散！'},
-    CITIZEN:{after:'c12-book-comfort',npc:'citizen',kind:'connect',pairs:[['BREAD','面包'],['APPLE','苹果']],title:'把熟悉的东西连回名字',context:'街头居民：这些东西我每天都见……陪我慢慢看清楚。',reply:'Bona：很好，就这样。我们再听听旁边的人。'},
+    CITIZEN:{after:'c12-book-comfort',npc:'citizen',kind:'connect',pairs:[['BREAD','BREAD'],['APPLE','APPLE']],title:'把熟悉的东西连回名字',context:'街头居民：这些东西我每天都见……陪我慢慢看清楚。',reply:'Bona：很好，就这样。我们再听听旁边的人。'},
     VENDOR_ORANGE:{after:'c12-hero-wait',npc:'vendor',kind:'board',word:'ORANGE',title:'陪橙子的词光走三步',context:'水果商：太着急就说不清了。带着橙子的词光慢慢走。',reply:'水果商：原来能一步一步来。谢谢，我没那么慌了。'},
     SILAS_ORDER:{after:'c13-wager-begins',npc:'silas',kind:'arrange',word:'ORDER',title:'照着样子排好 ORDER',context:'Silas：先让我看看，你们怎么写下“秩序”。',reply:'Silas：好。接下来面对锚点守卫，看看你们能否守住约定。'}
   };
   for(const [id,c]of Object.entries(configs))Object.freeze(Object.assign(c,{id}));Object.freeze(configs);
-  const pointNames={MOTHER:'母亲',CHILD:'孩子',BREAD:'面包',APPLE:'苹果',ORANGE:'橙子',HAMMER:'铁锤',B:'字母 B',ORDER:'秩序'};
+  const pointNames={MOTHER:'MOTHER',CHILD:'CHILD',BREAD:'BREAD',APPLE:'APPLE',ORANGE:'ORANGE',HAMMER:'HAMMER',B:'B',ORDER:'ORDER'};
   const byAfter=new Map(Object.values(configs).map(c=>[c.after,c]));
   function splitSegment(segment){
     const result=[];let commands=[],part=0;
